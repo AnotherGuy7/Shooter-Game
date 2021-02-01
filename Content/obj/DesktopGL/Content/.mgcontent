@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Profile>Reach</Profile>
+  <Platform>DesktopGL</Platform>
+  <Config />
+  <SourceFiles>
+    <File>C:/Users/Jayson/Downloads/Projects - Monogame/Shooter Game/ShooterGame/ShooterGame/Content/Images/Backgrounds/GameOverBackground.png</File>
+    <File>C:/Users/Jayson/Downloads/Projects - Monogame/Shooter Game/ShooterGame/ShooterGame/Content/Images/Backgrounds/SpaceBackground1.png</File>
+    <File>C:/Users/Jayson/Downloads/Projects - Monogame/Shooter Game/ShooterGame/ShooterGame/Content/Images/Backgrounds/SpaceBackground2.png</File>
+    <File>C:/Users/Jayson/Downloads/Projects - Monogame/Shooter Game/ShooterGame/ShooterGame/Content/Images/Backgrounds/TitleScreenBackground.png</File>
+    <File>C:/Users/Jayson/Downloads/Projects - Monogame/Shooter Game/ShooterGame/ShooterGame/Content/Images/BattleUFO_1.png</File>
+    <File>C:/Users/Jayson/Downloads/Projects - Monogame/Shooter Game/ShooterGame/ShooterGame/Content/Images/BattleUFO_2.png</File>
+    <File>C:/Users/Jayson/Downloads/Projects - Monogame/Shooter Game/ShooterGame/ShooterGame/Content/Images/BattleUFO_3.png</File>
+    <File>C:/Users/Jayson/Downloads/Projects - Monogame/Shooter Game/ShooterGame/ShooterGame/Content/Images/BattleUFO_4.png</File>
+    <File>C:/Users/Jayson/Downloads/Projects - Monogame/Shooter Game/ShooterGame/ShooterGame/Content/Images/Explosion_1.png</File>
+    <File>C:/Users/Jayson/Downloads/Projects - Monogame/Shooter Game/ShooterGame/ShooterGame/Content/Images/Explosion_2.png</File>
+    <File>C:/Users/Jayson/Downloads/Projects - Monogame/Shooter Game/ShooterGame/ShooterGame/Content/Images/Explosion_3.png</File>
+    <File>C:/Users/Jayson/Downloads/Projects - Monogame/Shooter Game/ShooterGame/ShooterGame/Content/Images/Explosion_4.png</File>
+    <File>C:/Users/Jayson/Downloads/Projects - Monogame/Shooter Game/ShooterGame/ShooterGame/Content/Images/FighterShip_1.png</File>
+    <File>C:/Users/Jayson/Downloads/Projects - Monogame/Shooter Game/ShooterGame/ShooterGame/Content/Images/FighterShip_2.png</File>
+    <File>C:/Users/Jayson/Downloads/Projects - Monogame/Shooter Game/ShooterGame/ShooterGame/Content/Images/FighterShip_3.png</File>
+    <File>C:/Users/Jayson/Downloads/Projects - Monogame/Shooter Game/ShooterGame/ShooterGame/Content/Images/Objects/EnemyLaser.png</File>
+    <File>C:/Users/Jayson/Downloads/Projects - Monogame/Shooter Game/ShooterGame/ShooterGame/Content/Images/Objects/Player_Bullet.png</File>
+    <File>C:/Users/Jayson/Downloads/Projects - Monogame/Shooter Game/ShooterGame/ShooterGame/Content/Images/PlayerHealthIcon.png</File>
+    <File>C:/Users/Jayson/Downloads/Projects - Monogame/Shooter Game/ShooterGame/ShooterGame/Content/Images/Spaceship_1.png</File>
+    <File>C:/Users/Jayson/Downloads/Projects - Monogame/Shooter Game/ShooterGame/ShooterGame/Content/Images/Spaceship_2.png</File>
+    <File>C:/Users/Jayson/Downloads/Projects - Monogame/Shooter Game/ShooterGame/ShooterGame/Content/Images/Spaceship_3.png</File>
+    <File>C:/Users/Jayson/Downloads/Projects - Monogame/Shooter Game/ShooterGame/ShooterGame/Content/Images/UFO_1.png</File>
+    <File>C:/Users/Jayson/Downloads/Projects - Monogame/Shooter Game/ShooterGame/ShooterGame/Content/Images/UFO_2.png</File>
+    <File>C:/Users/Jayson/Downloads/Projects - Monogame/Shooter Game/ShooterGame/ShooterGame/Content/Images/UFO_3.png</File>
+    <File>C:/Users/Jayson/Downloads/Projects - Monogame/Shooter Game/ShooterGame/ShooterGame/Content/Images/UFO_4.png</File>
+    <File>C:/Users/Jayson/Downloads/Projects - Monogame/Shooter Game/ShooterGame/ShooterGame/Content/Images/UFO_5.png</File>
+  </SourceFiles>
+  <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+  </DestFiles>
+</SourceFileCollection>
