@@ -4,3 +4,5 @@ Properties
 .mono
 *.old
 *.user
+obj
+bin
