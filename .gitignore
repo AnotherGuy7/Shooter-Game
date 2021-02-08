@@ -6,3 +6,6 @@ Properties
 *.user
 obj
 bin
+Content/bin
+Content/obj
+*.mgcontent
