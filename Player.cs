@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using ShooterGame.Effects;
@@ -9,24 +10,18 @@ namespace ShooterGame
 {
     public class Player : CollisionBody
     {
-        public Texture2D[] playerAnimationArray;
+        public static SoundEffect bulletShootSound;
 
         private const float moveSpeed = 5f;
-        private const int dashDetectionTime = 3;
-        private const int dashDurationTime = 10;
-        private const int dashCooldownTime = 60;
 
-        private Vector2 position;
+        public Texture2D[] playerAnimationArray;
+        public Vector2 position;
+
         private float shootSpeed = 6f;
         private int shootTimer = 0;
         private int frame = 0;
         private int frameCounter = 0;
         private int explosionCounter = 0;
-        private int dashTimer = 0;
-        private int dashCooldown = 0;
-        private int[] dashKeyPressTimers = new int[2];
-        private bool[] dashKeyCanPressAgain = new bool[2];
-        private int dashDirection = 1;
         private bool canMove = false;
         private bool dying = false;
 
@@ -40,6 +35,8 @@ namespace ShooterGame
 
         public override void Initialize()
         {
+            dying = false;
+            explosionCounter = 0;
             hitbox = new Rectangle((int)position.X, (int)position.Y, playerAnimationArray[0].Width, playerAnimationArray[0].Height);
         }
 
@@ -47,50 +44,38 @@ namespace ShooterGame
         {
             if (shootTimer > 0)
                 shootTimer--;
-            if (dashCooldown > 0)
-                dashCooldown--;
 
             AnimateShip();
-            HandleAfterImages();
             CollisionBody[] bodiesArray = Main.activeProjectiles.ToArray();
             DetectCollisions(bodiesArray.ToList());
             Vector2 velocity = Vector2.Zero;
-            canMove = !dying && dashTimer <= 0;
+            canMove = !dying;
 
             if (canMove)
             {
                 KeyboardState keyboardState = Keyboard.GetState();
-                if (keyboardState.IsKeyDown(Keys.W))
+                if (keyboardState.IsKeyDown(Keys.W) && position.Y > 0)
                 {
                     velocity.Y -= moveSpeed;
                 }
-                if (keyboardState.IsKeyDown(Keys.A))
+                if (keyboardState.IsKeyDown(Keys.A) && position.X > 0)
                 {
                     velocity.X -= moveSpeed;
-                    if (!dashKeyCanPressAgain[0])
-                        dashKeyPressTimers[0] += dashDetectionTime;
                 }
-                if (keyboardState.IsKeyDown(Keys.S))
+                if (keyboardState.IsKeyDown(Keys.S) && position.Y < 800 - hitbox.Height)
                 {
                     velocity.Y += moveSpeed;
                 }
-                if (keyboardState.IsKeyDown(Keys.D))
+                if (keyboardState.IsKeyDown(Keys.D) && position.X < 700 - hitbox.Width)
                 {
                     velocity.X += moveSpeed;
-                    if (!dashKeyCanPressAgain[1])
-                        dashKeyPressTimers[1] += dashDurationTime;
                 }
                 if (keyboardState.IsKeyDown(Keys.Space) && shootTimer <= 0)
                 {
                     shootTimer += 30;
                     Projectile.NewProjectile(position + centerTurretOffset, new Vector2(0f, -shootSpeed), true);
+                    bulletShootSound.Play();
                 }
-                UpdatePlayerDash(keyboardState, velocity);
-            }
-            if (dashTimer > 0)
-            {
-                dashTimer--;
-                velocity = new Vector2(moveSpeed * 3f * dashDirection, 0f);
             }
 
             position += velocity;
@@ -123,81 +108,6 @@ namespace ShooterGame
                 if (frame >= playerAnimationArray.Length)
                 {
                     frame = 0;
-                }
-            }
-        }
-
-        private void UpdatePlayerDash(KeyboardState keyboardState, Vector2 velocity)
-        {
-            for (int timerIndex = 0; timerIndex < dashKeyPressTimers.Length; timerIndex++)
-            {
-                if (dashKeyPressTimers[timerIndex] > 0)
-                {
-                    dashKeyPressTimers[timerIndex]--;
-                }
-                else
-                {
-                    dashKeyCanPressAgain[timerIndex] = false;
-                }
-            }
-
-            if (dashKeyPressTimers[0] > 0 && keyboardState.IsKeyUp(Keys.A))
-            {
-                dashKeyCanPressAgain[0] = true;
-            }
-            if (dashKeyPressTimers[1] > 0 && keyboardState.IsKeyUp(Keys.D))
-            {
-                dashKeyCanPressAgain[1] = true;
-            }
-            if (dashTimer <= 0 && dashCooldown <= 0 && dashKeyCanPressAgain[0] && dashKeyPressTimers[0] > 0 && keyboardState.IsKeyDown(Keys.A))
-            {
-                dashTimer += dashDurationTime;
-                velocity.X -= moveSpeed * 3f;
-                dashDirection = -1;
-                dashKeyPressTimers[0] = 0;
-                dashKeyCanPressAgain[0] = false;
-                dashCooldown = dashCooldownTime;
-            }
-            if (dashTimer <= 0 && dashCooldown <= 0 && dashKeyCanPressAgain[1] && dashKeyPressTimers[1] > 0 && keyboardState.IsKeyDown(Keys.D))
-            {
-                dashTimer += dashDurationTime;
-                velocity.X += moveSpeed * 3f;
-                dashDirection = 1;
-                dashKeyPressTimers[1] = 0;
-                dashKeyCanPressAgain[1] = false;
-                dashCooldown = dashCooldownTime;
-            }
-        }
-
-        private void HandleAfterImages()
-        {
-            if (dashTimer > 0 && dashTimer % 2 == 0)
-            {
-                afterImageAlpha.Add(255);
-                afterImagePositions.Add(position);
-                afterImageFrame.Add(frame);
-            }
-
-            if (afterImageAlpha.Count > 0)
-            {
-                int currentAfterImageCount = afterImageAlpha.Count;
-                for (int a = 0; a < currentAfterImageCount; a++)
-                {
-                    if (a >= afterImageAlpha.Count)
-                    {
-                        break;
-                    }
-                    if (afterImageAlpha[a] > 0)
-                    {
-                        afterImageAlpha[a] -= 180 / dashDurationTime;
-                        if (afterImageAlpha[a] <= 0)
-                        {
-                            afterImageAlpha.RemoveAt(a);
-                            afterImagePositions.RemoveAt(a);
-                            afterImageFrame.RemoveAt(a);
-                            a--;
-                        }
-                    }
                 }
             }
         }

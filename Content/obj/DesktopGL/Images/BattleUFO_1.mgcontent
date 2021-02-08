@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Jayson/Downloads/Projects - Monogame/Shooter Game/ShooterGame/ShooterGame/Content/Images/BattleUFO_1.png</SourceFile>
+  <SourceFile>C:/Users/Jayson/Downloads/Projects - Monogame/ShooterGame/ShooterGame/Content/Images/BattleUFO_1.png</SourceFile>
   <SourceTime>2021-01-28T18:30:59.6880672-05:00</SourceTime>
-  <DestFile>C:/Users/Jayson/Downloads/Projects - Monogame/Shooter Game/ShooterGame/ShooterGame/Content/bin/DesktopGL/Images/BattleUFO_1.xnb</DestFile>
-  <DestTime>2021-01-28T21:15:03.5285916-05:00</DestTime>
+  <DestFile>C:/Users/Jayson/Downloads/Projects - Monogame/ShooterGame/ShooterGame/Content/bin/DesktopGL/Images/BattleUFO_1.xnb</DestFile>
+  <DestTime>2021-02-07T17:34:03.2104588-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-12-08T11:35:54-05:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

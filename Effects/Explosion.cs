@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
@@ -9,10 +10,12 @@ namespace ShooterGame.Effects
     public class Explosion : VisualEffect
     {
         public static Texture2D[] explosionAnimationArray;
+        public static SoundEffect explosionSound;
 
         private Vector2 position;
         private Vector2 velocity = Vector2.Zero;
         private float rotation;
+        private bool playedSound = false;
 
         public static void NewExplosion(Vector2 position, Vector2 velocity, float rotation = 0f)
         {
@@ -35,6 +38,11 @@ namespace ShooterGame.Effects
                     frame = 0;
                     DestroyInstance(this);
                 }
+            }
+            if (!playedSound)
+            {
+                explosionSound.Play();
+                playedSound = true;
             }
 
             if (velocity != Vector2.Zero)

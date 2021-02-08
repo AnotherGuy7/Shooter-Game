@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using ShooterGame.Effects;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ namespace ShooterGame.Enemies
     public class UFO : CollisionBody
     {
         public static Texture2D[] ufoAnimationArray;
+        public static SoundEffect laserShootSound;
         public Vector2 position;
 
         private int frame = 0;
@@ -51,8 +53,9 @@ namespace ShooterGame.Enemies
             hitbox.Y = (int)position.Y;
 
             shootCounter++;
-            if (shootCounter >= 4 * 60)
+            if (shootCounter >= (4 * 60) / Main.gameDifficulty)
             {
+                laserShootSound.Play();
                 Projectile.NewProjectile(position + shootOffset, shootVelocity, false);
                 shootCounter = 0;
             }
@@ -93,6 +96,7 @@ namespace ShooterGame.Enemies
 
         public void DestroyInstance(UFO ufo)
         {
+            Main.gameScore += 1;
             Main.activeEntities.Remove(ufo);
         }
 
